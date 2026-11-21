@@ -4,6 +4,195 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>NO WEAPON</title>
+<meta name="description" content="총 없는 크루 배틀. 사탕총, 토스터, 그리고 춤.">
+<meta property="og:title" content="NO WEAPON">
+<meta property="og:description" content="총 없는 크루 배틀. 사탕총, 토스터, 그리고 춤.">
+<meta property="og:image" content="m/intro.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Black+Han+Sans&family=Noto+Sans+KR:wght@500;900&display=swap" rel="stylesheet">
+<style>
+/* VOICE loud, street, a little rude; few words
+   IDEA a crew battle broadcast + sticker-bombed skate deck: black ground, stickers slapped on footage
+   PICTURE real in-game footage full-bleed, giant condensed title over it, a scrolling ticker
+   COLOUR black #0d0d0d ground, toy yellow #ffd23f, hot pink #ff3d7f, mint #7dffc4 from the toaster
+   TYPE Anton (latin display) + Black Han Sans (korean display) + Noto Sans KR
+   LAYOUT laptop: full-bleed hero, then bands that alternate picture/sticker; phone: one column, title first */
+:root{color-scheme:dark;--bg:#0d0d0d;--ink:#f6f3ea;--y:#ffd23f;--p:#ff3d7f;--m:#7dffc4;--g:#8a877f;--card:#181818}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:64px;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:500 16px/1.55 "Noto Sans KR",system-ui,sans-serif;overflow-x:clip}
+img,video{max-width:100%;display:block}
+a{color:inherit}
+.en{font-family:Anton,"Black Han Sans",Impact,sans-serif;font-weight:400;letter-spacing:.01em;line-height:.92;text-transform:uppercase}
+.ko{font-family:"Black Han Sans","Noto Sans KR",sans-serif;font-weight:400;line-height:1.1}
+.band{padding:clamp(56px,8vw,120px) max(5vw,16px)}
+.wrap{max-width:1240px;margin:0 auto}
+nav{position:sticky;top:0;z-index:30;background:rgba(13,13,13,.86);backdrop-filter:blur(10px);border-bottom:1px solid #262626}
+nav .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:4px 22px;padding:12px max(5vw,16px)}
+nav .logo{font-size:26px;text-decoration:none;margin-right:auto;color:var(--y)}
+nav a.l{text-decoration:none;font-weight:900;font-size:15px;padding:6px 0;color:var(--ink)}
+nav a.l:hover{color:var(--y)}
+.hero{position:relative;overflow:hidden;background:#000}
+.hero video{width:100%;height:min(86svh,820px);object-fit:cover;opacity:.78}
+.hero .over{position:absolute;inset:auto 0 0 0;padding:0 max(5vw,16px) clamp(24px,5vw,56px)}
+.hero h1{margin:0;font-size:clamp(76px,17vw,240px);color:var(--y);text-shadow:6px 6px 0 #000}
+.hero .sub{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.stk{display:inline-block;font-weight:900;font-size:16px;padding:6px 14px;border:2px solid #000;border-radius:999px;background:var(--p);color:#fff;transform:rotate(-2deg);box-shadow:3px 3px 0 #000;white-space:nowrap}
+.stk.y{background:var(--y);color:#111;transform:rotate(1.5deg)}
+.stk.m{background:var(--m);color:#111;transform:rotate(-1deg)}
+.tick{background:var(--y);color:#111;border-block:3px solid #000;overflow:hidden;white-space:nowrap}
+.tick div{display:inline-block;padding:10px 0;font-size:28px;animation:run 22s linear infinite}
+.tick span{margin:0 22px}
+.tick b{color:var(--p);font-weight:400}
+@keyframes run{to{transform:translateX(-50%)}}
+.head{display:flex;flex-wrap:wrap;align-items:end;gap:8px 20px;margin-bottom:clamp(24px,4vw,44px)}
+.head .en{font-size:clamp(56px,10vw,132px);margin:0}
+.head .ko{font-size:clamp(20px,2.4vw,28px);color:var(--g);padding-bottom:10px}
+.world{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(20px,4vw,56px);align-items:center}
+.world .line{font-size:clamp(34px,5vw,64px);margin:0}
+.world .line em{font-style:normal;color:var(--y)}
+.world p{color:var(--g);margin:18px 0 0;max-width:34ch}
+.world figure{margin:0;position:relative}
+.world figure img{border-radius:22px;width:100%;aspect-ratio:3/2;object-fit:cover;background:#ffc23a}
+.world figure .stk{position:absolute;left:-10px;bottom:18px}
+.crew{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:clamp(28px,4vw,48px)}
+.crew img{border-radius:16px;aspect-ratio:4/5;object-fit:cover;width:100%;filter:saturate(1.15)}
+.weps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.wep{position:relative;border-radius:22px;overflow:hidden;background:var(--card);aspect-ratio:4/5}
+.wep img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.wep .cap{position:absolute;left:0;right:0;bottom:0;padding:60px 18px 18px;background:linear-gradient(transparent,rgba(0,0,0,.85))}
+.wep .cap .ko{font-size:clamp(26px,3vw,36px)}
+.wep .cap .stk{margin-top:8px}
+.throw{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:22px}
+.throw .ko{font-size:22px;margin-right:6px}
+.chip{border:2px solid #333;border-radius:999px;padding:6px 16px;font-weight:900}
+.rules{background:var(--p);color:#111}
+.rules .head .ko{color:#4a0d22}
+.rgrid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:clamp(20px,4vw,56px);align-items:center}
+.rlist{display:grid;gap:14px}
+.r{background:#111;color:var(--ink);border-radius:22px;padding:20px 24px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 20px;align-items:center;box-shadow:6px 6px 0 #000}
+.r .en{font-size:clamp(40px,5vw,64px);color:var(--y);white-space:nowrap}
+.r .ko{font-size:22px}
+.r small{grid-column:2;color:var(--g);font-size:14px}
+.phone{justify-self:center;width:min(100%,330px);border:5px solid #111;border-radius:30px;overflow:hidden;background:#000;box-shadow:10px 10px 0 #111;transform:rotate(2deg)}
+.phone video{aspect-ratio:9/16;object-fit:cover;width:100%}
+.dl{text-align:left}
+.dlbox{border:3px solid var(--y);border-radius:28px;padding:clamp(24px,5vw,56px);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center}
+.dlbox .en{font-size:clamp(48px,8vw,104px);color:var(--y);margin:0}
+.dlbox p{color:var(--g);margin:10px 0 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 28px;border-radius:999px;border:3px solid #000;font-weight:900;font-size:17px;text-decoration:none;background:var(--y);color:#111;box-shadow:5px 5px 0 var(--p);transition:transform .12s,box-shadow .12s;white-space:nowrap}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--p)}
+.btn:focus-visible{outline:3px solid var(--m);outline-offset:3px}
+.btn.off{background:#2a2a2a;color:#9a978f;border-color:#2a2a2a;box-shadow:none;cursor:not-allowed}
+.btn.off:hover{transform:none}
+.fb{background:var(--m);color:#111}
+.fb .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center}
+.fb .en{font-size:clamp(56px,10vw,132px);margin:0}
+.fb .ko{font-size:clamp(22px,3vw,34px);margin-top:10px}
+.fb p{margin:10px 0 0;color:#1d4a39;font-weight:900}
+.fb .btn{background:#111;color:var(--m);box-shadow:5px 5px 0 var(--p)}
+footer{padding:26px max(5vw,16px);color:var(--g);font-size:14px;border-top:1px solid #262626}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+footer .en{color:var(--y);font-size:22px}
+@media(max-width:900px){.weps{grid-template-columns:repeat(2,minmax(0,1fr))}.weps .wep:last-child{grid-column:1/-1;aspect-ratio:16/10}}
+@media(max-width:720px){.world,.rgrid,.dlbox,.fb .wrap{grid-template-columns:minmax(0,1fr)}.crew{grid-template-columns:repeat(2,minmax(0,1fr))}nav a.l{font-size:14px}.hero video{height:62svh}}
+@media(max-width:420px){.weps{grid-template-columns:minmax(0,1fr)}.weps .wep:last-child{aspect-ratio:4/5}}
+@media(prefers-reduced-motion:reduce){.tick div{animation:none}.btn{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<nav aria-label="메인 메뉴"><div class="wrap">
+  <a class="logo en" href="#top">No Weapon</a>
+  <a class="l" href="#world">세계관</a>
+  <a class="l" href="#weapons">무기</a>
+  <a class="l" href="#rules">룰</a>
+  <a class="l" href="#download">다운로드</a>
+  <a class="l" href="#feedback">피드백</a>
+</div></nav>
+
+<header class="hero" id="top">
+  <video src="m/intro.mp4" poster="m/intro.jpg" autoplay muted loop playsinline aria-label="두 크루가 경기장에 정렬하는 인게임 영상"></video>
+  <div class="over">
+    <h1 class="en">No Weapon</h1>
+    <div class="sub"><span class="stk">총 없는 크루 배틀</span><span class="stk y">사탕 · 토스트 · 춤</span></div>
+  </div>
+</header>
+
+<div class="tick en" aria-hidden="true"><div>
+  <span>No guns</span><b>★</b><span>Candy</span><b>★</b><span>Toast</span><b>★</b><span>Dance battle</span><b>★</b><span>24 crews</span><b>★</b><span>Spotlight</span><b>★</b>
+  <span>No guns</span><b>★</b><span>Candy</span><b>★</b><span>Toast</span><b>★</b><span>Dance battle</span><b>★</b><span>24 crews</span><b>★</b><span>Spotlight</span><b>★</b>
+</div></div>
+
+<section class="band" id="world"><div class="wrap">
+  <div class="head"><h2 class="en">World</h2><span class="ko">세계관</span></div>
+  <div class="world">
+    <div>
+      <h3 class="ko line">진짜 총이 사라진 도시.<br><em>승부는 쇼로.</em></h3>
+      <p>24개 크루. 장난감 무기. 그리고 춤으로 지면 진짜 끝.</p>
+    </div>
+    <figure><img src="m/concept.jpg" alt="민트색 토스터 샷건" loading="lazy"><span class="stk m">이게 무기임</span></figure>
+  </div>
+  <div class="crew">
+    <img src="m/crew1.jpg" alt="크루원 1" loading="lazy"><img src="m/crew2.jpg" alt="크루원 2" loading="lazy"><img src="m/crew3.jpg" alt="크루원 3" loading="lazy"><img src="m/crew4.jpg" alt="크루원 4" loading="lazy">
+  </div>
+</div></section>
+
+<section class="band" id="weapons" style="padding-top:0"><div class="wrap">
+  <div class="head"><h2 class="en">Weapons</h2><span class="ko">무기</span></div>
+  <div class="weps">
+    <article class="wep"><img src="m/candy.jpg" alt="사탕총" loading="lazy"><div class="cap"><div class="ko">사탕총</div><span class="stk y">10발</span></div></article>
+    <article class="wep"><img src="m/blast.jpg" alt="토스터 더블팝 발사" loading="lazy"><div class="cap"><div class="ko">토스터 더블팝</div><span class="stk">토스트 2 + 빵가루 8</span></div></article>
+    <article class="wep"><img src="m/smoke.jpg" alt="발사 후 연기 나는 토스터" loading="lazy"><div class="cap"><div class="ko">쏘고 나면 고소함</div><span class="stk m">연기 포함</span></div></article>
+  </div>
+  <div class="throw"><span class="ko">던지기</span><span class="chip">티백</span><span class="chip">각설탕</span><span class="chip">향수</span><span class="chip">도넛</span></div>
+</div></section>
+
+<section class="band rules" id="rules"><div class="wrap">
+  <div class="head"><h2 class="en">Rules</h2><span class="ko">룰</span></div>
+  <div class="rgrid">
+    <div class="rlist">
+      <div class="r"><span class="ko" style="font-size:clamp(34px,4.4vw,56px);color:var(--y);white-space:nowrap">10초=1점</span><span class="ko">스포트라이트에서 춤추면 점수</span><small>조명은 한 번에 한 명만</small></div>
+      <div class="r"><span class="en">×3</span><span class="ko">스테이지 잡으면 팀 버프</span><small>스택당 이동 +5%, 연사 +8%</small></div>
+      <div class="r"><span class="en">Q</span><span class="ko">춤 23종, 랜덤</span><small>추는 동안엔 못 쏨. 점프·사격하면 바로 끊김</small></div>
+    </div>
+    <div class="phone"><video src="m/dance.mp4" poster="m/spotclose.jpg" muted loop playsinline controls preload="metadata" aria-label="스포트라이트 아래에서 춤추는 인게임 영상"></video></div>
+  </div>
+</div></section>
+
+<section class="band dl" id="download"><div class="wrap">
+  <div class="dlbox">
+    <div>
+      <h2 class="en">Coming soon</h2>
+      <p>Windows · 테스트 빌드 준비 중</p>
+    </div>
+    <span class="btn off" role="link" aria-disabled="true">다운로드 준비 중</span>
+  </div>
+</div></section>
+
+<section class="band fb" id="feedback"><div class="wrap">
+  <div>
+    <h2 class="en">Feedback</h2>
+    <div class="ko">버그, 아이디어, 불만 다 받음</div>
+    <p>스레드 댓글이나 DM으로 보내주세요.</p>
+  </div>
+  <a class="btn" href="https://www.threads.com/@noweapongame">@noweapongame</a>
+</div></section>
+
+<footer><div class="wrap">
+  <span class="en">No Weapon</span>
+  <span>화면은 전부 개발 중인 인게임 영상 · 1인 개발 + Claude</span>
+</div></footer>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NO WEAPON</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
