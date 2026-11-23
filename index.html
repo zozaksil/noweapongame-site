@@ -57,7 +57,7 @@ nav a.l:hover{color:var(--y)}
 .world figure img{border-radius:22px;width:100%;aspect-ratio:3/2;object-fit:cover;background:#ffc23a}
 .world figure .stk{position:absolute;left:-10px;bottom:18px}
 .crew{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:clamp(28px,4vw,48px)}
-.crew img{border-radius:16px;aspect-ratio:4/5;object-fit:cover;width:100%;filter:saturate(1.15)}
+.crew img,.crew video{border-radius:16px;aspect-ratio:1;object-fit:cover;width:100%;background:#181818}
 .weps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .wep{position:relative;border-radius:22px;overflow:hidden;background:var(--card);aspect-ratio:4/5}
 .wep img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -68,7 +68,7 @@ nav a.l:hover{color:var(--y)}
 .wp{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(16px,3vw,36px);align-items:center;background:var(--card);border-radius:26px;padding:clamp(14px,2vw,22px)}
 .wp:nth-child(even) .obj{order:2}
 .wp .obj{position:relative}
-.wp .obj img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:18px;background:#181818}
+.wp .obj img,.wp .obj video{width:100%;aspect-ratio:1;object-fit:cover;border-radius:18px;background:#181818}
 .wp .obj .stk{position:absolute;left:10px;top:12px}
 .wp .nm{font-size:clamp(18px,2vw,24px);color:var(--g)}
 .wp h3{margin:2px 0 0;font-size:clamp(34px,5vw,60px);color:var(--y)}
@@ -167,7 +167,7 @@ footer .en{color:var(--y);font-size:22px}
     <figure><img src="m/concept.jpg" alt="민트색 토스터 샷건" loading="lazy"><span class="stk m">이게 무기임</span></figure>
   </div>
   <div class="crew">
-    <img src="m/crew1.jpg" alt="크루원 1" loading="lazy"><img src="m/crew2.jpg" alt="크루원 2" loading="lazy"><img src="m/crew3.jpg" alt="크루원 3" loading="lazy"><img src="m/crew4.jpg" alt="크루원 4" loading="lazy">
+    <video src="m/crew1.mp4" poster="m/crew1_p.jpg" autoplay muted loop playsinline preload="auto" aria-label="춤추며 도는 크루원 1"></video><video src="m/crew2.mp4" poster="m/crew2_p.jpg" autoplay muted loop playsinline preload="auto" aria-label="춤추며 도는 크루원 2"></video><video src="m/crew3.mp4" poster="m/crew3_p.jpg" autoplay muted loop playsinline preload="auto" aria-label="춤추며 도는 크루원 3"></video><video src="m/crew4.mp4" poster="m/crew4_p.jpg" autoplay muted loop playsinline preload="auto" aria-label="춤추며 도는 크루원 4"></video>
   </div>
 </div></section>
 
@@ -175,7 +175,7 @@ footer .en{color:var(--y);font-size:22px}
   <div class="head"><h2 class="en">Weapons</h2><span class="ko">무기</span></div>
   <div class="wps">
     <article class="wp">
-      <div class="obj"><img src="m/candy_3d.jpg" alt="사탕총 3D 모델" loading="lazy"><span class="stk y">기본템</span></div>
+      <div class="obj"><video src="m/candy_3d.mp4" poster="m/candy_3d.jpg" autoplay muted loop playsinline preload="metadata" aria-label="빙글 도는 사탕총 3D 모델"></video><span class="stk y">기본템</span></div>
       <div class="info">
         <div class="en nm">Candy gun</div>
         <h3 class="ko">사탕총</h3>
@@ -184,7 +184,7 @@ footer .en{color:var(--y);font-size:22px}
       </div>
     </article>
     <article class="wp">
-      <div class="obj"><img src="m/toast_3d.jpg" alt="토스트 더블팝 3D 모델" loading="lazy"><span class="stk ">샷건</span></div>
+      <div class="obj"><video src="m/toast_3d.mp4" poster="m/toast_3d.jpg" autoplay muted loop playsinline preload="metadata" aria-label="빙글 도는 토스트 더블팝 3D 모델"></video><span class="stk ">샷건</span></div>
       <div class="info">
         <div class="en nm">Toast double pop</div>
         <h3 class="ko">토스트 더블팝</h3>
@@ -193,7 +193,7 @@ footer .en{color:var(--y);font-size:22px}
       </div>
     </article>
     <article class="wp">
-      <div class="obj"><img src="m/coke_3d.jpg" alt="코크 건 3D 모델" loading="lazy"><span class="stk m">연사</span></div>
+      <div class="obj"><video src="m/coke_3d.mp4" poster="m/coke_3d.jpg" autoplay muted loop playsinline preload="metadata" aria-label="빙글 도는 코크 건 3D 모델"></video><span class="stk m">연사</span></div>
       <div class="info">
         <div class="en nm">Coke gun</div>
         <h3 class="ko">코크 건</h3>
@@ -202,7 +202,7 @@ footer .en{color:var(--y);font-size:22px}
       </div>
     </article>
     <article class="wp">
-      <div class="obj"><img src="m/boom_3d.jpg" alt="붐 박스 3D 모델" loading="lazy"><span class="stk y">관통</span></div>
+      <div class="obj"><video src="m/boom_3d.mp4" poster="m/boom_3d.jpg" autoplay muted loop playsinline preload="metadata" aria-label="빙글 도는 붐 박스 3D 모델"></video><span class="stk y">관통</span></div>
       <div class="info">
         <div class="en nm">Boom box</div>
         <h3 class="ko">붐 박스</h3>
@@ -211,7 +211,7 @@ footer .en{color:var(--y);font-size:22px}
       </div>
     </article>
     <article class="wp">
-      <div class="obj"><img src="m/mega_3d.jpg" alt="메가폰 3D 모델" loading="lazy"><span class="stk ">차지</span></div>
+      <div class="obj"><video src="m/mega_3d.mp4" poster="m/mega_3d.jpg" autoplay muted loop playsinline preload="metadata" aria-label="빙글 도는 메가폰 3D 모델"></video><span class="stk ">차지</span></div>
       <div class="info">
         <div class="en nm">Megaphone</div>
         <h3 class="ko">메가폰</h3>
@@ -220,7 +220,7 @@ footer .en{color:var(--y);font-size:22px}
       </div>
     </article>
     <article class="wp">
-      <div class="obj"><img src="m/cam_3d.jpg" alt="치즈 카메라 3D 모델" loading="lazy"><span class="stk m">찰칵</span></div>
+      <div class="obj"><video src="m/cam_3d.mp4" poster="m/cam_3d.jpg" autoplay muted loop playsinline preload="metadata" aria-label="빙글 도는 치즈 카메라 3D 모델"></video><span class="stk m">찰칵</span></div>
       <div class="info">
         <div class="en nm">Cheese camera</div>
         <h3 class="ko">치즈 카메라</h3>
@@ -281,5 +281,9 @@ footer .en{color:var(--y);font-size:22px}
   <span>화면은 전부 개발 중인 인게임 영상 · 1인 개발 + Claude</span>
 </div></footer>
 
+<script>
+// 화면에 보이는 영상만 재생 (배터리 · 데이터 아끼기)
+if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){v.play().catch(()=>{})}else{v.pause()}}),{rootMargin:'200px'});document.querySelectorAll('video[autoplay]').forEach(v=>io.observe(v))}
+</script>
 </body>
 </html>
