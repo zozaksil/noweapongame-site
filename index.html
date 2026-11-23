@@ -50,6 +50,8 @@ header a.m:hover{color:var(--red)}
 /* hero */
 .hero{position:relative;background:#000}
 .hero video{height:min(calc(100svh - 90px),56.25vw);object-fit:cover}
+.snd{position:absolute;right:var(--pad);bottom:18px;background:#0c0c0c;color:var(--ink);border:2px solid var(--ink);padding:8px 14px;cursor:pointer;font-weight:700}
+.snd:hover,.snd[aria-pressed="true"]{background:var(--red);border-color:var(--red);color:#0c0c0c}
 .hero .meta{position:absolute;left:var(--pad);right:var(--pad);top:18px;display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
 .mark{font-size:15vw;padding:clamp(10px,2vw,22px) var(--pad) 0;text-align:center;margin:0;white-space:nowrap}
 .mark s{text-decoration-thickness:.06em}
@@ -181,6 +183,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
 <div class="hero">
   <video src="m/play.mp4" poster="m/play.jpg" autoplay muted loop playsinline preload="auto" aria-label="Gameplay: a player runs and guns through the arena with toy weapons, then cuts to a dance in the spotlight"></video>
   <div class="meta"><span class="tape r">Gameplay — captured in-game</span><span class="m mute">Season 01 / Work in progress</span></div>
+  <button class="snd m" type="button" aria-pressed="false">Sound off</button>
 </div>
 <h1 class="mark x"><span>No <s>Weapon</s></span></h1>
 <div class="under m"><span>Toy warfare / Crew battle</span><span>Candy · Toast · Cola · CD · Noise · Cheese</span><span>Season 01</span></div>
@@ -347,7 +350,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
     <div class="steps">
       <figure><img src="m/spot.jpg" alt="The arena goes dark and a spotlight hits the floor" loading="lazy"><figcaption><span class="m mute">Step 01</span><span class="x">Lights die. One spot hits the floor.</span></figcaption></figure>
       <figure><img src="m/spotclose.jpg" alt="A crew member dancing inside the light" loading="lazy"><figcaption><span class="m mute">Step 02</span><span class="x">Get in. Hit Q. Dance.</span></figcaption></figure>
-      <figure><video src="m/a_spot.mp4" poster="m/spotclose.jpg" muted loop playsinline autoplay preload="metadata" aria-label="In-game footage of a dance under the spotlight"></video><figcaption><span class="m mute">Step 03</span><span class="x">Hold 10 seconds. Point.</span></figcaption></figure>
+      <figure><video src="m/g_spot.mp4" poster="m/g_spot.jpg" muted loop playsinline autoplay preload="metadata" aria-label="Gameplay: dancing in the spotlight while enemies close in"></video><figcaption><span class="m mute">Step 03</span><span class="x">Hold 10 seconds. Point.</span></figcaption></figure>
     </div>
     <div class="facts">
       <div><span class="x">10s = 1</span><p>One body in the light at a time. While you dance, you can't move or shoot.</p></div>
@@ -385,6 +388,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
 // fit the wordmark to the screen width
 function fit(){const m=document.querySelector('.mark');m.style.fontSize='100px';const w=m.clientWidth-parseFloat(getComputedStyle(m).paddingLeft)*2;m.style.fontSize=(100*w/m.firstChild.getBoundingClientRect().width*0.99)+'px'}
 (document.fonts?document.fonts.ready:Promise.resolve()).then(fit);addEventListener('resize',fit);
+// sound toggle for the trailer
+(function(){const b=document.querySelector('.snd'),v=document.querySelector('.hero video');if(!b||!v)return;b.addEventListener('click',()=>{v.muted=!v.muted;if(!v.muted){v.currentTime=0;v.play().catch(()=>{})}b.textContent=v.muted?'Sound off':'Sound on';b.setAttribute('aria-pressed',String(!v.muted))})})();
 // play only the videos on screen
 if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){v.play().catch(()=>{})}else{v.pause()}}),{rootMargin:'200px'});document.querySelectorAll('video[autoplay]').forEach(v=>io.observe(v))}
 </script>
