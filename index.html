@@ -7,7 +7,7 @@
 <meta name="description" content="총 없는 크루 배틀. 사탕총, 토스터, 그리고 춤.">
 <meta property="og:title" content="NO WEAPON">
 <meta property="og:description" content="총 없는 크루 배틀. 사탕총, 토스터, 그리고 춤.">
-<meta property="og:image" content="m/intro.jpg">
+<meta property="og:image" content="m/fight.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Black+Han+Sans&family=Noto+Sans+KR:wght@500;900&display=swap" rel="stylesheet">
@@ -29,7 +29,7 @@ a{color:inherit}
 .band{padding:clamp(56px,8vw,120px) max(5vw,16px)}
 .wrap{max-width:1240px;margin:0 auto}
 nav{position:sticky;top:0;z-index:30;background:rgba(13,13,13,.86);backdrop-filter:blur(10px);border-bottom:1px solid #262626}
-nav .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:4px 22px;padding:12px max(5vw,16px)}
+nav .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:4px clamp(10px,3vw,22px);padding:12px max(5vw,16px)}
 nav .logo{font-size:26px;text-decoration:none;margin-right:auto;color:var(--y)}
 nav a.l{text-decoration:none;font-weight:900;font-size:15px;padding:6px 0;color:var(--ink)}
 nav a.l:hover{color:var(--y)}
@@ -64,6 +64,38 @@ nav a.l:hover{color:var(--y)}
 .wep .cap{position:absolute;left:0;right:0;bottom:0;padding:60px 18px 18px;background:linear-gradient(transparent,rgba(0,0,0,.85))}
 .wep .cap .ko{font-size:clamp(26px,3vw,36px)}
 .wep .cap .stk{margin-top:8px}
+.wps{display:grid;gap:18px}
+.wp{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(16px,3vw,36px);align-items:center;background:var(--card);border-radius:26px;padding:clamp(14px,2vw,22px)}
+.wp:nth-child(even) .obj{order:2}
+.wp .obj{position:relative}
+.wp .obj img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:18px;background:#181818}
+.wp .obj .stk{position:absolute;left:10px;top:12px}
+.wp .nm{font-size:clamp(18px,2vw,24px);color:var(--g)}
+.wp h3{margin:2px 0 0;font-size:clamp(34px,5vw,60px);color:var(--y)}
+.wp p{margin:8px 0 16px;color:var(--ink);max-width:36ch}
+.shots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.shots figure,.steps figure{margin:0}
+.shots img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px}
+.shots figcaption{font-size:13px;font-weight:900;color:var(--g);margin-top:6px}
+.stuff{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:26px}
+.st{border:2px solid #2c2c2c;border-radius:18px;padding:16px}
+.st .ko{font-size:22px;color:var(--m)}
+.st p{margin:6px 0 0;color:var(--g);font-size:14px}
+.mode{background:#111;color:var(--ink);border-radius:28px;padding:clamp(18px,3vw,36px);box-shadow:8px 8px 0 #000}
+.mhead{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin-bottom:20px}
+.mhead h3{margin:0;font-size:clamp(44px,7vw,92px);color:var(--y)}
+.mhead .ko{font-size:22px;color:var(--g)}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-bottom:20px}
+.steps img,.steps video{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:16px;background:#000}
+.steps figcaption{display:flex;align-items:center;gap:10px;margin-top:10px;font-weight:900}
+.steps figcaption b{font-size:30px;color:var(--p);font-weight:400}
+.mode .r{background:#1c1c1c;box-shadow:none}
+.mode .rlist{grid-template-columns:repeat(3,minmax(0,1fr))}
+.mode .r{grid-template-columns:minmax(0,1fr)}
+.mode .r small{grid-column:1}
+.mode.soon{margin-top:18px;background:transparent;border:3px dashed #111;box-shadow:none;display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;color:#111}
+.mode.soon .en{font-size:clamp(34px,5vw,60px)}
+.mode.soon .ko{font-size:20px;color:#4a0d22}
 .throw{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:22px}
 .throw .ko{font-size:22px;margin-right:6px}
 .chip{border:2px solid #333;border-radius:999px;padding:6px 16px;font-weight:900}
@@ -95,9 +127,9 @@ nav a.l:hover{color:var(--y)}
 footer{padding:26px max(5vw,16px);color:var(--g);font-size:14px;border-top:1px solid #262626}
 footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
 footer .en{color:var(--y);font-size:22px}
-@media(max-width:900px){.weps{grid-template-columns:repeat(2,minmax(0,1fr))}.weps .wep:last-child{grid-column:1/-1;aspect-ratio:16/10}}
-@media(max-width:720px){.world,.rgrid,.dlbox,.fb .wrap{grid-template-columns:minmax(0,1fr)}.crew{grid-template-columns:repeat(2,minmax(0,1fr))}nav a.l{font-size:14px}.hero video{height:62svh}}
-@media(max-width:420px){.weps{grid-template-columns:minmax(0,1fr)}.weps .wep:last-child{aspect-ratio:4/5}}
+@media(max-width:900px){.stuff{grid-template-columns:repeat(2,minmax(0,1fr))}.mode .rlist{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:720px){.world,.wp,.dlbox,.fb .wrap{grid-template-columns:minmax(0,1fr)}.wp:nth-child(even) .obj{order:0}.steps{grid-template-columns:minmax(0,1fr)}.steps img,.steps video{aspect-ratio:16/10}.crew{grid-template-columns:repeat(2,minmax(0,1fr))}nav a.l{font-size:14px}.hero video{height:62svh}}
+@media(max-width:420px){nav .logo{font-size:20px}nav a.l{font-size:13px}nav .wrap{gap:4px 9px}}
 @media(prefers-reduced-motion:reduce){.tick div{animation:none}.btn{transition:none}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -113,7 +145,7 @@ footer .en{color:var(--y);font-size:22px}
 </div></nav>
 
 <header class="hero" id="top">
-  <video src="m/intro.mp4" poster="m/intro.jpg" autoplay muted loop playsinline aria-label="두 크루가 경기장에 정렬하는 인게임 영상"></video>
+  <video src="m/fight.mp4" poster="m/fight.jpg" autoplay muted loop playsinline aria-label="도넛과 향수가 터지는 경기장에서 두 크루가 싸우는 인게임 영상"></video>
   <div class="over">
     <h1 class="en">No Weapon</h1>
     <div class="sub"><span class="stk">총 없는 크루 배틀</span><span class="stk y">사탕 · 토스트 · 춤</span></div>
@@ -121,8 +153,8 @@ footer .en{color:var(--y);font-size:22px}
 </header>
 
 <div class="tick en" aria-hidden="true"><div>
-  <span>No guns</span><b>★</b><span>Candy</span><b>★</b><span>Toast</span><b>★</b><span>Dance battle</span><b>★</b><span>24 crews</span><b>★</b><span>Spotlight</span><b>★</b>
-  <span>No guns</span><b>★</b><span>Candy</span><b>★</b><span>Toast</span><b>★</b><span>Dance battle</span><b>★</b><span>24 crews</span><b>★</b><span>Spotlight</span><b>★</b>
+  <span>No guns</span><b>★</b><span>Candy</span><b>★</b><span>Toast</span><b>★</b><span>Dance battle</span><b>★</b><span>Crew battle</span><b>★</b><span>Spotlight</span><b>★</b>
+  <span>No guns</span><b>★</b><span>Candy</span><b>★</b><span>Toast</span><b>★</b><span>Dance battle</span><b>★</b><span>Crew battle</span><b>★</b><span>Spotlight</span><b>★</b>
 </div></div>
 
 <section class="band" id="world"><div class="wrap">
@@ -130,7 +162,7 @@ footer .en{color:var(--y);font-size:22px}
   <div class="world">
     <div>
       <h3 class="ko line">진짜 총이 사라진 도시.<br><em>승부는 쇼로.</em></h3>
-      <p>24개 크루. 장난감 무기. 그리고 춤으로 지면 진짜 끝.</p>
+      <p>크루. 장난감 무기. 그리고 춤으로 지면 진짜 끝.</p>
     </div>
     <figure><img src="m/concept.jpg" alt="민트색 토스터 샷건" loading="lazy"><span class="stk m">이게 무기임</span></figure>
   </div>
@@ -141,24 +173,88 @@ footer .en{color:var(--y);font-size:22px}
 
 <section class="band" id="weapons" style="padding-top:0"><div class="wrap">
   <div class="head"><h2 class="en">Weapons</h2><span class="ko">무기</span></div>
-  <div class="weps">
-    <article class="wep"><img src="m/candy.jpg" alt="사탕총" loading="lazy"><div class="cap"><div class="ko">사탕총</div><span class="stk y">10발</span></div></article>
-    <article class="wep"><img src="m/blast.jpg" alt="토스터 더블팝 발사" loading="lazy"><div class="cap"><div class="ko">토스터 더블팝</div><span class="stk">토스트 2 + 빵가루 8</span></div></article>
-    <article class="wep"><img src="m/smoke.jpg" alt="발사 후 연기 나는 토스터" loading="lazy"><div class="cap"><div class="ko">쏘고 나면 고소함</div><span class="stk m">연기 포함</span></div></article>
+  <div class="wps">
+    <article class="wp">
+      <div class="obj"><img src="m/candy_3d.jpg" alt="사탕총 3D 모델" loading="lazy"><span class="stk y">기본템</span></div>
+      <div class="info">
+        <div class="en nm">Candy gun</div>
+        <h3 class="ko">사탕총</h3>
+        <p>탄은 무한. 맞은 자리엔 우리 크루 색이 남음.</p>
+        <div class="shots"><figure><img src="m/candy.jpg" alt="사탕총을 든 크루원" loading="lazy"><figcaption>들면 이럼</figcaption></figure></div>
+      </div>
+    </article>
+    <article class="wp">
+      <div class="obj"><img src="m/toast_3d.jpg" alt="토스트 더블팝 3D 모델" loading="lazy"><span class="stk ">샷건</span></div>
+      <div class="info">
+        <div class="en nm">Toast double pop</div>
+        <h3 class="ko">토스트 더블팝</h3>
+        <p>토스트 두 장이 튀어나감. 가까울수록 아픔.</p>
+        <div class="shots"><figure><img src="m/blast.jpg" alt="토스트와 빵가루가 터져 나가는 장면" loading="lazy"><figcaption>빵가루 폭발</figcaption></figure><figure><img src="m/smoke.jpg" alt="쏜 뒤 연기가 나는 토스터" loading="lazy"><figcaption>쏘고 나면 고소한 연기</figcaption></figure></div>
+      </div>
+    </article>
+    <article class="wp">
+      <div class="obj"><img src="m/coke_3d.jpg" alt="코크 건 3D 모델" loading="lazy"><span class="stk m">연사</span></div>
+      <div class="info">
+        <div class="en nm">Coke gun</div>
+        <h3 class="ko">코크 건</h3>
+        <p>콜라 방울을 난사. 계속 맞으면 방울에 갇히고, 풀려도 끈적.</p>
+        <div class="shots"><figure><img src="m/coke_hold.jpg" alt="코크 건을 든 크루원" loading="lazy"><figcaption>들면 이럼</figcaption></figure><figure><img src="m/coke_fx.jpg" alt="콜라 방울과 거품이 날아가는 장면" loading="lazy"><figcaption>탄산 발사</figcaption></figure><figure><img src="m/coke_trap.jpg" alt="콜라 방울에 갇힌 상대" loading="lazy"><figcaption>갇힘</figcaption></figure></div>
+      </div>
+    </article>
+    <article class="wp">
+      <div class="obj"><img src="m/boom_3d.jpg" alt="붐 박스 3D 모델" loading="lazy"><span class="stk y">관통</span></div>
+      <div class="info">
+        <div class="en nm">Boom box</div>
+        <h3 class="ko">붐 박스</h3>
+        <p>CD가 사람은 뚫고 벽에선 튕김.</p>
+        <div class="shots"><figure><img src="m/boom_hold.jpg" alt="붐 박스를 든 크루원" loading="lazy"><figcaption>들면 이럼</figcaption></figure><figure><img src="m/boom_fx.jpg" alt="CD가 날아가는 장면" loading="lazy"><figcaption>CD 발사</figcaption></figure></div>
+      </div>
+    </article>
+    <article class="wp">
+      <div class="obj"><img src="m/mega_3d.jpg" alt="메가폰 3D 모델" loading="lazy"><span class="stk ">차지</span></div>
+      <div class="info">
+        <div class="en nm">Megaphone</div>
+        <h3 class="ko">메가폰</h3>
+        <p>톡톡 누르면 음파. 꾹 모았다 떼면 귀가 멍해짐.</p>
+        <div class="shots"><figure><img src="m/mega_fx.jpg" alt="메가폰에서 큰 음파가 퍼지는 장면" loading="lazy"><figcaption>풀 차지 음파</figcaption></figure></div>
+      </div>
+    </article>
+    <article class="wp">
+      <div class="obj"><img src="m/cam_3d.jpg" alt="치즈 카메라 3D 모델" loading="lazy"><span class="stk m">찰칵</span></div>
+      <div class="info">
+        <div class="en nm">Cheese camera</div>
+        <h3 class="ko">치즈 카메라</h3>
+        <p>프레임 안에 든 상대는 치즈 포즈로 얼음.</p>
+        <div class="shots"><figure><img src="m/cam_hold.jpg" alt="두 손으로 카메라를 든 크루원" loading="lazy"><figcaption>들면 이럼</figcaption></figure><figure><img src="m/cam_fx.jpg" alt="플래시가 터지는 장면" loading="lazy"><figcaption>플래시</figcaption></figure><figure><img src="m/cam_cheese.jpg" alt="찍힌 사진이 인화된 화면" loading="lazy"><figcaption>인화까지 됨</figcaption></figure></div>
+      </div>
+    </article>
   </div>
   <div class="throw"><span class="ko">던지기</span><span class="chip">티백</span><span class="chip">각설탕</span><span class="chip">향수</span><span class="chip">도넛</span></div>
+  <div class="stuff">
+    <div class="st"><div class="ko">믹스테이프</div><p>들고 춤추면 기술이 터짐. 한 번 쓰면 끝.</p></div>
+    <div class="st"><div class="ko">가챠</div><p>코인 넣고 돌리면 무기나 테이프.</p></div>
+    <div class="st"><div class="ko">드론 보급</div><p>하늘에서 상자가 떨어짐. 먼저 줍는 쪽이 임자.</p></div>
+    <div class="st"><div class="ko">코인</div><p>쓰러뜨리면 떨어짐. 쓰러지면 절반이 날아감.</p></div>
+    <div class="st"><div class="ko">스케이트보드</div><p>걷기 싫으면 탐.</p></div>
+  </div>
 </div></section>
 
 <section class="band rules" id="rules"><div class="wrap">
   <div class="head"><h2 class="en">Rules</h2><span class="ko">룰</span></div>
-  <div class="rgrid">
-    <div class="rlist">
-      <div class="r"><span class="ko" style="font-size:clamp(34px,4.4vw,56px);color:var(--y);white-space:nowrap">10초=1점</span><span class="ko">스포트라이트에서 춤추면 점수</span><small>조명은 한 번에 한 명만</small></div>
-      <div class="r"><span class="en">×3</span><span class="ko">스테이지 잡으면 팀 버프</span><small>스택당 이동 +5%, 연사 +8%</small></div>
-      <div class="r"><span class="en">Q</span><span class="ko">춤 23종, 랜덤</span><small>추는 동안엔 못 쏨. 점프·사격하면 바로 끊김</small></div>
+  <div class="mode">
+    <div class="mhead"><span class="stk y">MODE 01</span><h3 class="en">Spotlight</h3><span class="ko">스포트라이트</span></div>
+    <div class="steps">
+      <figure><img src="m/spot.jpg" alt="어두워진 경기장에 스포트라이트가 켜진 장면" loading="lazy"><figcaption><b class="en">1</b>불이 꺼지고 조명이 켜짐</figcaption></figure>
+      <figure><img src="m/spotclose.jpg" alt="조명 안에서 춤추는 크루원" loading="lazy"><figcaption><b class="en">2</b>빛 안에서 Q. 춤 시작</figcaption></figure>
+      <figure><video src="m/dance.mp4" poster="m/dance.jpg" muted loop playsinline controls preload="metadata" aria-label="스포트라이트 아래에서 춤추는 인게임 영상"></video><figcaption><b class="en">3</b>10초 버티면 1점</figcaption></figure>
     </div>
-    <div class="phone"><video src="m/dance.mp4" poster="m/spotclose.jpg" muted loop playsinline controls preload="metadata" aria-label="스포트라이트 아래에서 춤추는 인게임 영상"></video></div>
+    <div class="rlist">
+      <div class="r"><span class="ko" style="font-size:clamp(34px,4.4vw,56px);color:var(--y);white-space:nowrap">10초=1점</span><span class="ko">스포트라이트에서 춤추면 점수</span><small>조명은 한 번에 한 명만. 추는 동안엔 못 움직이고 못 쏨</small></div>
+      <div class="r"><span class="en">×3</span><span class="ko">무대 잡으면 팀 버프</span><small>잡을 때마다 크루 전체가 빨라짐</small></div>
+      <div class="r"><span class="en">Q</span><span class="ko">춤은 랜덤</span><small>춤추는 우리 편은 총으로 지켜야 함</small></div>
+    </div>
   </div>
+  <div class="mode soon"><span class="stk">MODE 02</span><span class="en">Coming soon</span><span class="ko">다음 룰 만드는 중</span></div>
 </div></section>
 
 <section class="band dl" id="download"><div class="wrap">
